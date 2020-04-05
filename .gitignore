@@ -40,3 +40,5 @@ lib/generated_plugin_registrant.dart
 apiKey.dart
 
 # release files
+*.apk
+*.jks
