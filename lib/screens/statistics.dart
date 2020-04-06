@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:tojuwa/widgets/dev_scaffold.dart';
 import 'package:tojuwa/utils/bar_chart.dart';
+import 'package:tojuwa/utils/pie_chart.dart';
 import 'package:tojuwa/models/chart_data.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -14,8 +15,7 @@ class Statistics extends StatefulWidget {
   _StatisticsState createState() => _StatisticsState();
 }
 
-class _StatisticsState extends State<Statistics>
-    with SingleTickerProviderStateMixin {
+class _StatisticsState extends State<Statistics> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   // Animation animation;
   // AnimationController animationController;
@@ -117,13 +117,15 @@ class _StatisticsState extends State<Statistics>
 //              crossAxisAlignment: CrossAxisAlignment.center,
             children: _isFetching
                 ? <Widget>[
-                    SizedBox(
-                      child: CircularProgressIndicator(
-                        strokeWidth: 5.0,
-                        valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+                    Center(
+                      child: SizedBox(
+                        child: CircularProgressIndicator(
+                          strokeWidth: 5.0,
+                          valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+                        ),
+                        height: 50.0,
+                        width: 50.0,
                       ),
-                      height: 50.0,
-                      width: 50.0,
                     ),
                   ]
                 : <Widget>[
@@ -141,6 +143,7 @@ class _StatisticsState extends State<Statistics>
                       child: Text("As of " + _timestampToDate(),
                           style: TextStyle(fontSize: 20, color: Colors.blue)),
                     ),
+                    PieChart(data: _chartData,),
                   ],
           ),
         ),
