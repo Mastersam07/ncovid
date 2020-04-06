@@ -147,6 +147,34 @@ class _HomeState extends State<Home> {
                       ),
                       child: ListTile(
                         leading: Icon(
+                          FontAwesomeIcons.mapMarkerAlt,
+                          color: Colors.blue,
+                        ),
+                        title: Text(
+                          'HeatMaps',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Text(
+                          'See areas affected by the infection',
+                          style: TextStyle(fontSize: 15),
+                        ),
+                        onTap: () {
+//                          Navigator.push(
+//                            context,
+//                            MaterialPageRoute(builder: (context) => HelpLine()),
+//                          );
+                        },
+                      ),
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(vertical: 5),
+                      decoration: BoxDecoration(
+                        color: kBoxLightColor,
+                        borderRadius: kBoxesRadius,
+                      ),
+                      child: ListTile(
+                        leading: Icon(
                           FontAwesomeIcons.readme,
                           color: Colors.blue,
                         ),
@@ -167,7 +195,6 @@ class _HomeState extends State<Home> {
                         },
                       ),
                     ),
-                    SizedBox(height: 25),
                     Container(
                       padding: EdgeInsets.symmetric(vertical: 5),
                       decoration: BoxDecoration(
