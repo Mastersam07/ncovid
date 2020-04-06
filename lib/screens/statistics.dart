@@ -112,7 +112,7 @@ class _StatisticsState extends State<Statistics>
         child: Container(
           // height: animation.value,
           // width: animation.value,
-          child: Column(
+          child: ListView(
 //              mainAxisAlignment: MainAxisAlignment.center,
 //              crossAxisAlignment: CrossAxisAlignment.center,
             children: _isFetching
