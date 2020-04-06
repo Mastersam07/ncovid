@@ -73,8 +73,8 @@ class _StatisticsState extends State<Statistics>
     }
   }
 
-  _timestampToDate(ts) {
-    var date = new DateTime.fromMillisecondsSinceEpoch(_allData["updated"]);
+  _timestampToDate() {
+    var date = new DateTime.now();
     var fd =
         formatDate(date, [MM, " ", d, ", ", yyyy, ", ", HH, ":", nn, " ", am]);
     return fd;
@@ -130,11 +130,17 @@ class _StatisticsState extends State<Statistics>
                     SizedBox(
                       height: 5.0,
                     ),
-                    Text(
-                      "Cases in Nigeria",
-                      style: TextStyle(fontSize: 20.0),
+                    Center(
+                      child: Text(
+                        "Cases in Nigeria",
+                        style: TextStyle(fontSize: 20.0),
+                      ),
                     ),
                     BarChart(data: _chartData),
+                    Center(
+                      child: Text("As of " + _timestampToDate(),
+                          style: TextStyle(fontSize: 20, color: Colors.blue)),
+                    ),
                   ],
           ),
         ),
