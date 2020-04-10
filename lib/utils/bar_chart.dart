@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:date_format/date_format.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
-import 'dart:convert' show json;
 import 'package:tojuwa/models/chart_data.dart';
 
 class BarChart extends StatelessWidget {
   final List<ChartData> data;
 
-  BarChart({ this.data });
+  BarChart({this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +28,23 @@ class BarChart extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Expanded(
-                child: charts.BarChart(series, animate: true),
+                child: charts.BarChart(
+                  series,
+                  defaultInteractions: true,
+                  animate: true,
+                  behaviors: [
+                    new charts.DatumLegend(
+                      outsideJustification: charts.OutsideJustification.endDrawArea,
+                      horizontalFirst: false,
+                      desiredMaxRows: 2,
+                      cellPadding: new EdgeInsets.only(right: 4.0, bottom: 4.0),
+                      entryTextStyle: charts.TextStyleSpec(
+                          color: charts.MaterialPalette.purple.shadeDefault,
+                          fontFamily: 'Georgia',
+                          fontSize: 11),
+                    )
+                  ],
+                ),
               ),
             ],
           ),

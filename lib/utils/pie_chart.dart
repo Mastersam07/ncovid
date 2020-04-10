@@ -30,7 +30,8 @@ class PieChart extends StatelessWidget {
               Expanded(
                 child: charts.PieChart(
                   series,
-//                  animate: true,
+                  animate: true,
+                defaultInteractions: true,
                   behaviors: [
                     new charts.DatumLegend(
                       outsideJustification: charts.OutsideJustification.endDrawArea,
