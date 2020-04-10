@@ -69,7 +69,7 @@ class NewsTile extends StatelessWidget {
                     title,
                     maxLines: 2,
                     style: TextStyle(
-                        color: Colors.black87,
+//                        color: Colors.black87,
                         fontSize: 20,
                         fontWeight: FontWeight.w500),
                   ),
@@ -79,7 +79,7 @@ class NewsTile extends StatelessWidget {
                   Text(
                     desc,
                     maxLines: 2,
-                    style: TextStyle(color: Colors.black54, fontSize: 14),
+                    style: TextStyle( fontSize: 14),
                   )
                 ],
               ),

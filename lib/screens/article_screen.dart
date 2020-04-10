@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:share/share.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dynamic_theme/dynamic_theme.dart';
 
 class ArticleView extends StatefulWidget {
   final String postUrl;
@@ -28,7 +29,7 @@ class _ArticleViewState extends State<ArticleView> {
             Text(
               "Corona",
               style:
-                  TextStyle(color: Colors.black87, fontWeight: FontWeight.w600),
+                  TextStyle(color: Colors.redAccent, fontWeight: FontWeight.w600),
             ),
             Text(
               "News",
@@ -40,14 +41,25 @@ class _ArticleViewState extends State<ArticleView> {
           IconButton(
             icon: Icon(
               Icons.lightbulb_outline,
-              color: Colors.black,
+//              color: Colors.black,
             ),
-            onPressed: null,
+            onPressed: () {
+              DynamicTheme.of(context).setBrightness(
+                  Theme.of(context).brightness == Brightness.dark
+                      ? Brightness.light
+                      : Brightness.dark);
+//                    DynamicTheme.of(context).setThemeData(new ThemeData(
+//                        primaryColor:
+//                            Theme.of(context).primaryColor == Colors.white
+//                                ? Colors.red
+//                                : Colors.white));
+              print('changed theme!');
+            },
           ),
           IconButton(
             icon: Icon(
               Icons.share,
-              color: Colors.black,
+//              color: Colors.black,
             ),
             onPressed: () {
               Share.share(
