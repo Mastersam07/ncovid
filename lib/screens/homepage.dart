@@ -100,7 +100,6 @@ class _HomeState extends State<Home> {
                         InfoBox(
                           title: 'Total cases',
                           number: totalCases,
-//                          number: 12345,
                           color: Colors.blue,
                           icon: Icon(FontAwesomeIcons.globeAmericas,
                               color: Colors.white, size: 20),
@@ -124,13 +123,11 @@ class _HomeState extends State<Home> {
                           icon: Icon(FontAwesomeIcons.skull,
                               color: Colors.white, size: 20),
                           number: deaths,
-//                        number: 123,
                         ),
                         SizedBox(width: 25),
                         InfoBox(
                           title: 'Recovered',
                           number: recovered,
-//                          number: 1234,
                           color: Colors.green,
                           icon: Icon(Icons.check, color: Colors.white),
                         ),
@@ -141,7 +138,6 @@ class _HomeState extends State<Home> {
                       padding: EdgeInsets.symmetric(vertical: 5),
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.blueAccent),
-//                        color: kBoxLightColor,
                         borderRadius: kBoxesRadius,
                       ),
                       child: ListTile(
@@ -170,7 +166,6 @@ class _HomeState extends State<Home> {
                       padding: EdgeInsets.symmetric(vertical: 5),
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.blueAccent),
-//                        color: kBoxLightColor,
                         borderRadius: kBoxesRadius,
                       ),
                       child: ListTile(
@@ -200,7 +195,6 @@ class _HomeState extends State<Home> {
                       padding: EdgeInsets.symmetric(vertical: 5),
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.blueAccent),
-//                        color: kBoxLightColor,
                         borderRadius: kBoxesRadius,
                       ),
                       child: ListTile(
@@ -230,7 +224,6 @@ class _HomeState extends State<Home> {
                       padding: EdgeInsets.symmetric(vertical: 5),
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.blueAccent),
-//                        color: kBoxLightColor,
                         borderRadius: kBoxesRadius,
                       ),
                       child: ListTile(

@@ -41,25 +41,18 @@ class _ArticleViewState extends State<ArticleView> {
           IconButton(
             icon: Icon(
               Icons.lightbulb_outline,
-//              color: Colors.black,
             ),
             onPressed: () {
               DynamicTheme.of(context).setBrightness(
                   Theme.of(context).brightness == Brightness.dark
                       ? Brightness.light
                       : Brightness.dark);
-//                    DynamicTheme.of(context).setThemeData(new ThemeData(
-//                        primaryColor:
-//                            Theme.of(context).primaryColor == Colors.white
-//                                ? Colors.red
-//                                : Colors.white));
               print('changed theme!');
             },
           ),
           IconButton(
             icon: Icon(
               Icons.share,
-//              color: Colors.black,
             ),
             onPressed: () {
               Share.share(
@@ -67,7 +60,6 @@ class _ArticleViewState extends State<ArticleView> {
             },
           ),
         ],
-//        backgroundColor: Colors.transparent,
         elevation: 0,
       ),
       body: Container(

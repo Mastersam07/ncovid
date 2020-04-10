@@ -36,15 +36,14 @@ class _CoronaNewsState extends State<CoronaNews> {
       appBar: AppBar(
         centerTitle: true,
         title: Row(
-//          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             CachedNetworkImage(
                 imageUrl:
                     "https://img.icons8.com/dusk/64/000000/activity-feed-2.png"),
             Text(
               "Corona",
-              style:
-                  TextStyle(color: Colors.redAccent, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                  color: Colors.redAccent, fontWeight: FontWeight.w600),
             ),
             Text(
               "News",
@@ -56,25 +55,18 @@ class _CoronaNewsState extends State<CoronaNews> {
           IconButton(
             icon: Icon(
               Icons.lightbulb_outline,
-//              color: Colors.black,
             ),
             onPressed: () {
               DynamicTheme.of(context).setBrightness(
                   Theme.of(context).brightness == Brightness.dark
                       ? Brightness.light
                       : Brightness.dark);
-//                    DynamicTheme.of(context).setThemeData(new ThemeData(
-//                        primaryColor:
-//                            Theme.of(context).primaryColor == Colors.white
-//                                ? Colors.red
-//                                : Colors.white));
               print('changed theme!');
             },
           ),
           IconButton(
             icon: Icon(
               Icons.share,
-//              color: Colors.black,
             ),
             onPressed: () {
               Share.share(
@@ -82,7 +74,6 @@ class _CoronaNewsState extends State<CoronaNews> {
             },
           ),
         ],
-//        backgroundColor: Colors.transparent,
         elevation: 0,
       ),
       body: _loading
