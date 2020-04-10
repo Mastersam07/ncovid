@@ -35,9 +35,14 @@ Download the `app-release.apk` to try out the beta version
 ## 📸 ScreenShots
 
 
-|<img src="ss/updated.png" width="250">|<img src="ss/2.png" width="250">|
-|<img src="ss/3.png" width="250">|<img src="ss/4.png" width="250">|
-|<img src="ss/updatedhelp.png" width="250">|<img src="ss/6.png" width="250">|
+| Light| Dark|
+|------|-------|
+|<img src="ss/1.png" width="250">|<img src="ss/1a.png" width="250">|
+|<img src="ss/2.png" width="250">|<img src="ss/2a.png" width="250">|
+|<img src="ss/3.png" width="250">|<img src="ss/3a.png" width="250">|
+|<img src="ss/4.png" width="250">|<img src="ss/4a.png" width="250">|
+|<img src="ss/5.png" width="250">|<img src="ss/5a.png" width="250">|
+|<img src="ss/6.png" width="250">|<img src="ss/6a.png" width="250">|
 
 ## 🔌 Plugins
 | Name | Usage |

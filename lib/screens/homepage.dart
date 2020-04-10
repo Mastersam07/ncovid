@@ -175,7 +175,7 @@ class _HomeState extends State<Home> {
                       ),
                       child: ListTile(
                         leading: Icon(
-                          FontAwesomeIcons.readme,
+                          FontAwesomeIcons.newspaper,
                           color: Colors.blue,
                         ),
                         title: Text(
