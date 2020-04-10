@@ -2,7 +2,7 @@
 
 Corona news updates app ft live tracking, statistics and helplines built with flutter
 
-[![Codemagic build status](https://api.codemagic.io/apps/5e7e1244c986422ef4e10b98/5e7e1244c986422ef4e10b97/status_badge.svg?style=flat-square)](https://codemagic.io/apps/5e7e1244c986422ef4e10b98/5e7e1244c986422ef4e10b97/latest_build)
+[![Codemagic build status](https://api.codemagic.io/apps/5e9024970fc3d420b7d40597/5e9024970fc3d420b7d40596/status_badge.svg)](https://codemagic.io/apps/5e9024970fc3d420b7d40597/5e9024970fc3d420b7d40596/latest_build)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-success.svg?style=flat-square)](https://github.com/Mastersam07/ncovid/pulls)
 ![GitHub contributors](https://img.shields.io/github/contributors/mastersam07/ncovid?color=success&style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/mastersam07/ncovid?style=flat-square)
