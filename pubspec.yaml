@@ -30,6 +30,7 @@ dependencies:
   shared_preferences: ^0.5.6+3 # Todo iOS
   charts_flutter: ^0.9.0 # Todo iOS
   date_format: ^1.0.8 # Todo iOS
+  dynamic_theme: ^1.0.0 # Todo iOS
 
 
   # The following adds the Cupertino Icons font to your application.
