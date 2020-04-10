@@ -11,6 +11,9 @@ Corona news updates app ft live tracking, statistics and helplines built with fl
 >
 > This app feeds off the ncovid api available at https://covid9ja.herokuapp.com/
 >
+> The api repo is available <a href="https://github.com/Mastersam07/ncovid-19-api"> here</a>
+>
+
 ## App
 Download the `app-release.apk` to try out the release version
 <br>
