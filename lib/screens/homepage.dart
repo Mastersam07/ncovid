@@ -140,7 +140,8 @@ class _HomeState extends State<Home> {
                     Container(
                       padding: EdgeInsets.symmetric(vertical: 5),
                       decoration: BoxDecoration(
-                        color: kBoxLightColor,
+                        border: Border.all(color: Colors.blueAccent),
+//                        color: kBoxLightColor,
                         borderRadius: kBoxesRadius,
                       ),
                       child: ListTile(
@@ -151,11 +152,11 @@ class _HomeState extends State<Home> {
                         title: Text(
                           'Protective measures',
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                              fontSize: 20, fontWeight: FontWeight.bold,),
                         ),
                         subtitle: Text(
                           'Protective measures against the coronavirus',
-                          style: TextStyle(fontSize: 15),
+                          style: TextStyle(fontSize: 15,),
                         ),
                         onTap: () {
                           Navigator.push(
@@ -168,7 +169,8 @@ class _HomeState extends State<Home> {
                     Container(
                       padding: EdgeInsets.symmetric(vertical: 5),
                       decoration: BoxDecoration(
-                        color: kBoxLightColor,
+                        border: Border.all(color: Colors.blueAccent),
+//                        color: kBoxLightColor,
                         borderRadius: kBoxesRadius,
                       ),
                       child: ListTile(
@@ -179,11 +181,11 @@ class _HomeState extends State<Home> {
                         title: Text(
                           'Latest News',
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                              fontSize: 20, fontWeight: FontWeight.bold,),
                         ),
                         subtitle: Text(
                           'Live updates about covid-19',
-                          style: TextStyle(fontSize: 15),
+                          style: TextStyle(fontSize: 15,),
                         ),
                         onTap: () {
                           Navigator.push(
@@ -197,7 +199,8 @@ class _HomeState extends State<Home> {
                     Container(
                       padding: EdgeInsets.symmetric(vertical: 5),
                       decoration: BoxDecoration(
-                        color: kBoxLightColor,
+                        border: Border.all(color: Colors.blueAccent),
+//                        color: kBoxLightColor,
                         borderRadius: kBoxesRadius,
                       ),
                       child: ListTile(
@@ -208,11 +211,11 @@ class _HomeState extends State<Home> {
                         title: Text(
                           'Statistics',
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                              fontSize: 20, fontWeight: FontWeight.bold,),
                         ),
                         subtitle: Text(
                           'View the stats and trends of the infection',
-                          style: TextStyle(fontSize: 15),
+                          style: TextStyle(fontSize: 15,),
                         ),
                         onTap: () {
                           Navigator.push(
@@ -226,7 +229,8 @@ class _HomeState extends State<Home> {
                     Container(
                       padding: EdgeInsets.symmetric(vertical: 5),
                       decoration: BoxDecoration(
-                        color: kBoxLightColor,
+                        border: Border.all(color: Colors.blueAccent),
+//                        color: kBoxLightColor,
                         borderRadius: kBoxesRadius,
                       ),
                       child: ListTile(
@@ -237,11 +241,11 @@ class _HomeState extends State<Home> {
                         title: Text(
                           'Helpline',
                           style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
+                              fontSize: 20, fontWeight: FontWeight.bold,),
                         ),
                         subtitle: Text(
                           'Know anyone exhibiting symptoms and need help?',
-                          style: TextStyle(fontSize: 15),
+                          style: TextStyle(fontSize: 15,),
                         ),
                         onTap: () {
                           Navigator.push(

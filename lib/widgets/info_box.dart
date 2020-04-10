@@ -57,7 +57,7 @@ class InfoBox extends StatelessWidget {
                           : Text(
                         '$number',
                         style:
-                        TextStyle(fontSize: 25, fontWeight: FontWeight.bold,),
+                        TextStyle(fontSize: 25, fontWeight: FontWeight.bold, color: Colors.black),
                         textAlign: TextAlign.end,
                       ),
                     ],
