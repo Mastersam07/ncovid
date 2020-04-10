@@ -3,6 +3,7 @@ import 'package:share/share.dart';
 import 'package:tojuwa/network/newsdata.dart';
 import 'package:tojuwa/widgets/widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dynamic_theme/dynamic_theme.dart';
 
 class CoronaNews extends StatefulWidget {
   @override
@@ -43,7 +44,7 @@ class _CoronaNewsState extends State<CoronaNews> {
             Text(
               "Corona",
               style:
-                  TextStyle(color: Colors.black87, fontWeight: FontWeight.w600),
+                  TextStyle(color: Colors.redAccent, fontWeight: FontWeight.w600),
             ),
             Text(
               "News",
@@ -55,14 +56,25 @@ class _CoronaNewsState extends State<CoronaNews> {
           IconButton(
             icon: Icon(
               Icons.lightbulb_outline,
-              color: Colors.black,
+//              color: Colors.black,
             ),
-            onPressed: null,
+            onPressed: () {
+              DynamicTheme.of(context).setBrightness(
+                  Theme.of(context).brightness == Brightness.dark
+                      ? Brightness.light
+                      : Brightness.dark);
+//                    DynamicTheme.of(context).setThemeData(new ThemeData(
+//                        primaryColor:
+//                            Theme.of(context).primaryColor == Colors.white
+//                                ? Colors.red
+//                                : Colors.white));
+              print('changed theme!');
+            },
           ),
           IconButton(
             icon: Icon(
               Icons.share,
-              color: Colors.black,
+//              color: Colors.black,
             ),
             onPressed: () {
               Share.share(
