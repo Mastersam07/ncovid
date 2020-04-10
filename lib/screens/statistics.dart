@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-//import 'package:tojuwa/widgets/dev_scaffold.dart';
 import 'package:tojuwa/utils/bar_chart.dart';
 import 'package:tojuwa/utils/pie_chart.dart';
-import 'package:tojuwa/utils/line_chart.dart';
 import 'package:tojuwa/models/chart_data.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
