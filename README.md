@@ -8,13 +8,13 @@ Corona news updates app ft live tracking, statistics and helplines built with fl
 ![GitHub last commit](https://img.shields.io/github/last-commit/mastersam07/ncovid?style=flat-square)
 [![License](https://img.shields.io/badge/license-MIT-success.svg?style=flat-square)](https://github.com/Mastersam07/ncovid/blob/master/LICENSE)
 
-> This app is in beta
->> This app feeds off the api https://covid9ja.herokuapp.com/
 >
-## Demo
-Download the `app-release.apk` to try out the beta version
+> This app feeds off the ncovid api available at https://covid9ja.herokuapp.com/
+>
+## App
+Download the `app-release.apk` to try out the release version
 <br>
-<a href="https://bit.ly/betatojuwa"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
+<a href="https://bit.ly/releasetojuwa"><img src="https://playerzon.com/asset/download.png" width="200"></img></a>
 <br>
 
 ## 💻 Requirements
@@ -30,6 +30,7 @@ Download the `app-release.apk` to try out the beta version
 - [x] Covid-19 Latest News
 - [x] Statistics and trends
 - [x] Helpline
+- [x] Darkmode
 
 
 ## 📸 ScreenShots
@@ -62,7 +63,7 @@ Download the `app-release.apk` to try out the beta version
 
 ```sh
 $ git clone https://github.com/Mastersam07/ncovid.git
-$ cd toju_wa/
+$ cd ncovid/
 ```
 
 #### 3. Get your open news api key
@@ -79,7 +80,7 @@ String apiKey = "Your_Api_Key";
  - [x] Statistics and trends
  - [x] Helpline
  - [ ] Cache Api response
- - [ ] Darkmode
+ - [x] Darkmode
  
 ## 🐛 Bugs/Request
 #### Encounter any problem(s)? feel free to open an issue. If you feel you could make something better, please raise a ticket on Github and I'll look into it. Pull request are also welcome.
