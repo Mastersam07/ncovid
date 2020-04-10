@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:tojuwa/screens/helpline_screen.dart';
 import 'package:tojuwa/screens/news_screen.dart';
@@ -10,7 +9,6 @@ import 'package:tojuwa/widgets/dev_scaffold.dart';
 import 'package:tojuwa/widgets/info_box.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tojuwa/screens/precautions.dart';
-//import 'package:tojuwa/network/coviddata.dart';
 import 'package:http/http.dart' as http;
 
 class Home extends StatefulWidget {
@@ -24,7 +22,6 @@ class _HomeState extends State<Home> {
   int deaths = 0;
   int recovered = 0;
   List states = [];
-
 
   Future<String> getTotalCasesForCorona() async {
     String url = "https://covid9ja.herokuapp.com/api/confirmed/";
@@ -43,7 +40,6 @@ class _HomeState extends State<Home> {
 
     return "Success";
   }
-
 
   Future<String> getStatesData() async {
     String url = "https://covid9ja.herokuapp.com/api/states/";
@@ -141,34 +137,6 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                     SizedBox(height: 25),
-                    Container(
-                      padding: EdgeInsets.symmetric(vertical: 5),
-                      decoration: BoxDecoration(
-                        color: kBoxLightColor,
-                        borderRadius: kBoxesRadius,
-                      ),
-                      child: ListTile(
-                        leading: Icon(
-                          FontAwesomeIcons.mapMarkerAlt,
-                          color: Colors.blue,
-                        ),
-                        title: Text(
-                          'HeatMaps',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold),
-                        ),
-                        subtitle: Text(
-                          'See areas affected by the infection',
-                          style: TextStyle(fontSize: 15),
-                        ),
-                        onTap: () {
-//                          Navigator.push(
-//                            context,
-//                            MaterialPageRoute(builder: (context) => HelpLine()),
-//                          );
-                        },
-                      ),
-                    ),
                     Container(
                       padding: EdgeInsets.symmetric(vertical: 5),
                       decoration: BoxDecoration(

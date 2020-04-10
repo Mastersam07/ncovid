@@ -4,10 +4,10 @@ import 'package:tojuwa/utils/pie_chart.dart';
 import 'package:tojuwa/models/chart_data.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
 import 'package:flutter/animation.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:date_format/date_format.dart';
+import 'package:tojuwa/widgets/dev_scaffold.dart';
 
 class Statistics extends StatefulWidget {
   @override
@@ -119,123 +119,96 @@ class _StatisticsState extends State<Statistics> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return DevScaffold(
       key: _scaffoldKey,
-      appBar: AppBar(
-          title: Text("Stats Area"),
-          elevation: 0,
-          centerTitle: true,
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.refresh),
-              onPressed: _fetchChartData,
+      title: "Stats Area",
+      body: SafeArea(
+        child: Center(
+          child: Container(
+            child: ListView(
+              children: _isFetching
+                  ? <Widget>[
+                      Center(
+                        child: SizedBox(
+                          child: CircularProgressIndicator(
+                            strokeWidth: 5.0,
+                            valueColor:
+                                AlwaysStoppedAnimation<Color>(Colors.blue),
+                          ),
+                          height: 50.0,
+                          width: 50.0,
+                        ),
+                      ),
+                    ]
+                  : <Widget>[
+                      SizedBox(
+                        height: 5.0,
+                      ),
+                      Center(
+                        child: Text(
+                          "Cases in Nigeria",
+                          style: TextStyle(fontSize: 20.0),
+                        ),
+                      ),
+                      BarChart(data: _chartData),
+                      Center(
+                        child: Text("As of " + _timestampToDate(),
+                            style: TextStyle(fontSize: 20, color: Colors.blue)),
+                      ),
+                      PieChart(
+                        data: _pieData,
+                      ),
+                      Center(
+                        child: Text("Total Tested: $totalTested",
+                            style: TextStyle(fontSize: 20, color: Colors.blue)),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 18.0, right: 18.0, top: 8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text("Total Cases: $totalCases",
+                                style: TextStyle(
+                                    fontSize: 20, color: Colors.blue)),
+                            Text("Total Admissions: $admissions",
+                                style: TextStyle(
+                                    fontSize: 20, color: Colors.blue)),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 18.0, right: 18.0, top: 8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text("Recovered: $recovered",
+                                style: TextStyle(
+                                    fontSize: 20, color: Colors.green)),
+                            Text("Recovery Rate: $recovery%",
+                                style: TextStyle(
+                                    fontSize: 20, color: Colors.green)),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 18.0, right: 18.0, top: 8.0, bottom: 18.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text("Deaths: $deaths",
+                                style:
+                                    TextStyle(fontSize: 20, color: Colors.red)),
+                            Text("Fatality Rate: $fatality%",
+                                style:
+                                    TextStyle(fontSize: 20, color: Colors.red)),
+                          ],
+                        ),
+                      ),
+                    ],
             ),
-          ]),
-      body: Center(
-        child: Container(
-          // height: animation.value,
-          // width: animation.value,
-          child: ListView(
-//              mainAxisAlignment: MainAxisAlignment.center,
-//              crossAxisAlignment: CrossAxisAlignment.center,
-            children: _isFetching
-                ? <Widget>[
-                    Center(
-                      child: SizedBox(
-                        child: CircularProgressIndicator(
-                          strokeWidth: 5.0,
-                          valueColor:
-                              AlwaysStoppedAnimation<Color>(Colors.blue),
-                        ),
-                        height: 50.0,
-                        width: 50.0,
-                      ),
-                    ),
-                  ]
-                : <Widget>[
-                    SizedBox(
-                      height: 5.0,
-                    ),
-                    Center(
-                      child: Text(
-                        "Cases in Nigeria",
-                        style: TextStyle(fontSize: 20.0),
-                      ),
-                    ),
-                    BarChart(data: _chartData),
-                    Center(
-                      child: Text("As of " + _timestampToDate(),
-                          style: TextStyle(fontSize: 20, color: Colors.blue)),
-                    ),
-                    PieChart(
-                      data: _pieData,
-                    ),
-                    Center(
-                      child: Text("Total Tested: $totalTested",
-                          style: TextStyle(fontSize: 20, color: Colors.blue)),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text("Total Cases: $totalCases",
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.blue)),
-                        ),
-//                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text("Total Admissions: $admissions",
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.blue)),
-                        ),
-//                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text("Recovered: $recovered",
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.green)),
-                        ),
-//                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text("Recovery Rate: $recovery%",
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.green)),
-                        ),
-//                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text("Deaths: $deaths",
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.red)),
-                        ),
-//                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text("Fatality Rate: $fatality%",
-                              style:
-                                  TextStyle(fontSize: 20, color: Colors.red)),
-                        ),
-//                        ),
-                      ],
-                    ),
-//              SizedBox(
-//                height: 5.0,
-//              ),
-//             LineChart(data: _chartData,),
-                  ],
           ),
         ),
       ),
@@ -244,7 +217,6 @@ class _StatisticsState extends State<Statistics> {
 
   @override
   void dispose() {
-    //animationController.dispose();
     super.dispose();
   }
 }

@@ -21,7 +21,6 @@ class _ArticleViewState extends State<ArticleView> {
       appBar: AppBar(
         centerTitle: true,
         title: Row(
-//          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             CachedNetworkImage(
                 imageUrl:
@@ -50,9 +49,9 @@ class _ArticleViewState extends State<ArticleView> {
               Icons.share,
               color: Colors.black,
             ),
-            onPressed: (){
+            onPressed: () {
               Share.share(
-                  "Download the Covid-19 Awareness App and share with your friends and loved ones.\nAwareness App -  https://bit.ly/betatojuwa");
+                  "Download the Covid-19 Awareness App and share with your friends and loved ones.\nAwareness App -  https://bit.ly/releasetojuwa");
             },
           ),
         ],

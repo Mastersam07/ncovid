@@ -65,7 +65,7 @@ class InfoBox extends StatelessWidget {
                   SizedBox(height: 10),
                   Text(
                     title,
-                    style: TextStyle(fontSize: 15),
+                    style: TextStyle(fontSize: 15, color: Colors.black),
                   )
                 ],
               ),
