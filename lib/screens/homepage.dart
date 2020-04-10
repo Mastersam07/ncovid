@@ -19,6 +19,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int totalTested = 0;
   int totalCases = 0;
   int deaths = 0;
   int recovered = 0;
@@ -34,9 +35,10 @@ class _HomeState extends State<Home> {
 
     setState(() {
       var data = json.decode(response.body);
-      totalCases = int.tryParse(data[0]['values']);
-      deaths = int.tryParse(data[2]['values']);
-      recovered = int.tryParse(data[1]['values']);
+      totalTested = int.tryParse(data[0]['values']);
+      totalCases = int.tryParse(data[1]['values']);
+      deaths = int.tryParse(data[3]['values']);
+      recovered = int.tryParse(data[2]['values']);
     });
 
     return "Success";
@@ -109,7 +111,7 @@ class _HomeState extends State<Home> {
                         ),
                         SizedBox(width: 25),
                         InfoBox(
-                          title: 'States',
+                          title: 'States Affected',
                           color: Colors.orange,
                           icon: Icon(Icons.flag, color: Colors.white),
                           number: states.length,

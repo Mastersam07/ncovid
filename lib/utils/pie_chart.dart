@@ -34,19 +34,6 @@ class PieChart extends StatelessWidget {
               Expanded(
                 child: charts.PieChart(
                   series,
-//                    behaviors: [
-//                      new charts.DatumLegend(
-//                        outsideJustification:
-//                            charts.OutsideJustification.endDrawArea,
-//                        horizontalFirst: false,
-//                        desiredMaxRows: 2,
-//                        cellPadding:
-//                            new EdgeInsets.only(right: 4.0, bottom: 4.0),
-//                        entryTextStyle: charts.TextStyleSpec(
-//                            color: charts.MaterialPalette.purple.shadeDefault,
-//                            fontSize: 11),
-//                      )
-//                    ],
                   animate: true,
                   defaultRenderer: new charts.ArcRendererConfig(
 //                    arcLength: 4 * pi,

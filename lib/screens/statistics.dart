@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 //import 'package:tojuwa/widgets/dev_scaffold.dart';
 import 'package:tojuwa/utils/bar_chart.dart';
 import 'package:tojuwa/utils/pie_chart.dart';
+import 'package:tojuwa/utils/line_chart.dart';
 import 'package:tojuwa/models/chart_data.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -17,11 +18,10 @@ class Statistics extends StatefulWidget {
 
 class _StatisticsState extends State<Statistics> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  // Animation animation;
-  // AnimationController animationController;
   bool _isFetching = false;
   var _allData;
   final List<ChartData> _chartData = [];
+  final List<ChartData> _pieData = [];
 
   void _fetchChartData() async {
     if (!_isFetching) {
@@ -40,21 +40,44 @@ class _StatisticsState extends State<Statistics> {
               ChartData(
                   name: "Cases",
                   amount: int.tryParse(
-                      json.decode(response.body.toString())[0]["values"]),
+                      json.decode(response.body.toString())[1]["values"]),
                   barColor: charts.ColorUtil.fromDartColor(Colors.blue)));
           _chartData.insert(
               1,
               ChartData(
                   name: "Recovered",
                   amount: int.tryParse(
-                      json.decode(response.body.toString())[1]["values"]),
+                      json.decode(response.body.toString())[2]["values"]),
                   barColor: charts.ColorUtil.fromDartColor(Colors.green)));
           _chartData.insert(
               2,
               ChartData(
                   name: "Deaths",
                   amount: int.tryParse(
+                      json.decode(response.body.toString())[3]["values"]),
+                  barColor: charts.ColorUtil.fromDartColor(Colors.red)));
+          _pieData.insert(
+              0,
+              ChartData(
+                  name: "Recovered",
+                  amount: int.tryParse(
                       json.decode(response.body.toString())[2]["values"]),
+                  barColor: charts.ColorUtil.fromDartColor(Colors.green)));
+          _pieData.insert(
+              1,
+              ChartData(
+                  name: "Admitted",
+                  amount: int.tryParse(
+                          json.decode(response.body.toString())[1]["values"]) -
+                      int.tryParse(
+                          json.decode(response.body.toString())[2]["values"]),
+                  barColor: charts.ColorUtil.fromDartColor(Colors.blue)));
+          _pieData.insert(
+              2,
+              ChartData(
+                  name: "Deaths",
+                  amount: int.tryParse(
+                      json.decode(response.body.toString())[3]["values"]),
                   barColor: charts.ColorUtil.fromDartColor(Colors.red)));
           _isFetching = false;
         });
@@ -83,14 +106,6 @@ class _StatisticsState extends State<Statistics> {
   @override
   void initState() {
     super.initState();
-    // animationController = AnimationController(
-    //   duration: Duration(milliseconds: 3000), vsync: this
-    // );
-    // animation = Tween(begin: 0.0, end: 1500.0).animate(animationController)
-    //   ..addListener(() {
-    //     setState(() {});
-    //   });
-    // animationController.forward();
     _fetchChartData();
   }
 
@@ -121,7 +136,8 @@ class _StatisticsState extends State<Statistics> {
                       child: SizedBox(
                         child: CircularProgressIndicator(
                           strokeWidth: 5.0,
-                          valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+                          valueColor:
+                              AlwaysStoppedAnimation<Color>(Colors.blue),
                         ),
                         height: 50.0,
                         width: 50.0,
@@ -143,7 +159,13 @@ class _StatisticsState extends State<Statistics> {
                       child: Text("As of " + _timestampToDate(),
                           style: TextStyle(fontSize: 20, color: Colors.blue)),
                     ),
-                    PieChart(data: _chartData,),
+                    PieChart(
+                      data: _pieData,
+                    ),
+//              SizedBox(
+//                height: 5.0,
+//              ),
+//             LineChart(data: _chartData,),
                   ],
           ),
         ),
