@@ -18,6 +18,13 @@ class Statistics extends StatefulWidget {
 
 class _StatisticsState extends State<Statistics> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  String totalTested;
+  int totalCases = 0;
+  int deaths = 0;
+  int recovered = 0;
+  double fatality = 0;
+  double recovery = 0;
+  int admissions = 0;
   bool _isFetching = false;
   var _allData;
   final List<ChartData> _chartData = [];
@@ -35,49 +42,52 @@ class _StatisticsState extends State<Statistics> {
       if (response.statusCode == 200) {
         setState(() {
           _allData = json.decode(response.body);
+          totalTested = _allData[0]['values'];
+          totalCases = int.tryParse(_allData[1]['values']);
+          deaths = int.tryParse(_allData[3]['values']);
+          recovered = int.tryParse(_allData[2]['values']);
+          fatality = double.parse(
+              ((deaths.toDouble() * 100) / totalCases.toDouble())
+                  .toStringAsFixed(2));
+          recovery = double.parse(
+              ((recovered.toDouble() * 100) / totalCases.toDouble())
+                  .toStringAsFixed(2));
+          admissions = totalCases - recovered - deaths;
           _chartData.insert(
               0,
               ChartData(
                   name: "Cases",
-                  amount: int.tryParse(
-                      json.decode(response.body.toString())[1]["values"]),
+                  amount: totalCases,
                   barColor: charts.ColorUtil.fromDartColor(Colors.blue)));
           _chartData.insert(
               1,
               ChartData(
                   name: "Recovered",
-                  amount: int.tryParse(
-                      json.decode(response.body.toString())[2]["values"]),
+                  amount: recovered,
                   barColor: charts.ColorUtil.fromDartColor(Colors.green)));
           _chartData.insert(
               2,
               ChartData(
                   name: "Deaths",
-                  amount: int.tryParse(
-                      json.decode(response.body.toString())[3]["values"]),
+                  amount: deaths,
                   barColor: charts.ColorUtil.fromDartColor(Colors.red)));
           _pieData.insert(
               0,
               ChartData(
                   name: "Recovered",
-                  amount: int.tryParse(
-                      json.decode(response.body.toString())[2]["values"]),
+                  amount: recovered,
                   barColor: charts.ColorUtil.fromDartColor(Colors.green)));
           _pieData.insert(
               1,
               ChartData(
                   name: "Admitted",
-                  amount: int.tryParse(
-                          json.decode(response.body.toString())[1]["values"]) -
-                      int.tryParse(
-                          json.decode(response.body.toString())[2]["values"]),
+                  amount: totalCases - recovered - deaths,
                   barColor: charts.ColorUtil.fromDartColor(Colors.blue)));
           _pieData.insert(
               2,
               ChartData(
                   name: "Deaths",
-                  amount: int.tryParse(
-                      json.decode(response.body.toString())[3]["values"]),
+                  amount: deaths,
                   barColor: charts.ColorUtil.fromDartColor(Colors.red)));
           _isFetching = false;
         });
@@ -161,6 +171,67 @@ class _StatisticsState extends State<Statistics> {
                     ),
                     PieChart(
                       data: _pieData,
+                    ),
+                    Center(
+                      child: Text("Total Tested: $totalTested",
+                          style: TextStyle(fontSize: 20, color: Colors.blue)),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("Total Cases: $totalCases",
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.blue)),
+                        ),
+//                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("Total Admissions: $admissions",
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.blue)),
+                        ),
+//                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("Recovered: $recovered",
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.green)),
+                        ),
+//                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("Recovery Rate: $recovery%",
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.green)),
+                        ),
+//                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("Deaths: $deaths",
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.red)),
+                        ),
+//                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text("Fatality Rate: $fatality%",
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.red)),
+                        ),
+//                        ),
+                      ],
                     ),
 //              SizedBox(
 //                height: 5.0,
