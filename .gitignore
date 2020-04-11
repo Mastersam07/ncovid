@@ -39,6 +39,8 @@ lib/generated_plugin_registrant.dart
 # apiKey
 apiKey.dart
 
+# keystore
+.android/key.properties
 
 # release files
 *.apk
