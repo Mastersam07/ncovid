@@ -39,6 +39,13 @@ lib/generated_plugin_registrant.dart
 # apiKey
 apiKey.dart
 
+# gradle files
+./android/app/build.gradle
+./android/gradle.properties
+
+# test folder
+./test
+
 # keystore
 .android/key.properties
 
