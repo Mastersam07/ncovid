@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:tojuwa/screens/helpline_screen.dart';
 import 'package:tojuwa/screens/news_screen.dart';
+import 'package:tojuwa/screens/states_screen.dart';
 import 'package:tojuwa/screens/statistics.dart';
 import 'package:tojuwa/utils/constants.dart';
 import 'package:tojuwa/widgets/dev_scaffold.dart';
@@ -110,7 +111,17 @@ class _HomeState extends State<Home> {
                           color: Colors.orange,
                           icon: Icon(Icons.flag, color: Colors.white),
                           number: states.length,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => States(
+                                  statesList: states,
+//                                  isDark: isDarkTheme,
+                                ),
+                              ),
+                            );
+                          },
                         ),
                       ],
                     ),
